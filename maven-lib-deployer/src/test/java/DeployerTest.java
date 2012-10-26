@@ -31,11 +31,10 @@ public class DeployerTest {
 
     @Test
     public void testListLibraries() {
-        String classpath = System.getenv("CLASSPATH");
-        System.out.println("Classpath: " + classpath);
+        String mavenhome = System.getenv("MAVEN_HOME");
         Deployer dd = new Deployer();
-        List<File> files = dd.listLibraries(classpath);
-        assertTrue(files != null && files.size() >= 0);
+        List<File> files = dd.listLibraries(mavenhome);
+        assertTrue("Maven has several jar",  files != null && files.size() >= 1);
     }
 
     @Test

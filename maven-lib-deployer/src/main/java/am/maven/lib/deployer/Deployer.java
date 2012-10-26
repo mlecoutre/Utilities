@@ -19,7 +19,7 @@ import org.apache.velocity.app.Velocity;
 
 /**
  * Basic maven deploy tool.
- * This tool is used to put a set of jar in a folder and its sub folder and deploy them on a maven repository (such as NEXUS)
+ * This tool is used to put a set of jars stored in a folder and its sub folder and deploy them on a maven repository (such as NEXUS)
  * with a same groupId and a same version.
  * Additionally it creates an additional artifact named <i>runtime-libraries</i> that gather all the other artifacts in its dependencies.
  * This tools is very interesting to put on your enterprise repository all java resources on the software editor that does not provide
@@ -52,7 +52,7 @@ public class Deployer {
             String localLibraryPath = LOCAL_LIBRARY_PATH;
 
             if (args != null && args.length == 3) {
-                //TODO use commons-cli to make the possibilty to use inline parameters
+                //TODO use commons-cli to make the possibility to use inline parameters
             }
             Deployer deployer = new Deployer();
             DeployerContext context = new DeployerContext();
@@ -113,9 +113,11 @@ public class Deployer {
             }
 
             /* DISPLAY THE LIST OF FAILED UPLOAD */
-            System.out.println("FAILED LIST OF UPLOAD");
-            for (String failedUpload : this.failedList) {
-                System.err.println(failedUpload);
+            if (failedList != null && failedList.size() > 0) {
+                System.out.println("** FAILED LIST OF UPLOADS **");
+                for (String failedUpload : this.failedList) {
+                    System.err.println(failedUpload);
+                }
             }
 
             /* GENERATE VELOCITY */
@@ -216,6 +218,7 @@ public class Deployer {
     /**
      * Visit Dir. Filter only jar files.
      * TODO remove recursif calls for better performance
+     *
      * @param dirFile   folder
      * @param libraries
      */
@@ -311,7 +314,6 @@ public class Deployer {
         }
         return exitVal;
     }
-
 
 
 }

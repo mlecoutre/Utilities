@@ -10,16 +10,16 @@ Description
 Small utilities projects used in my job
 * maven-lib-deployer: allow to deploy a folder of libs on a maven repository
 * Works on Windows and Unix environment
-* Will use MAVEN_HOME and JAVA_HOME environment variables
+* Will use _MAVEN\_HOME_ and _JAVA\_HOME_ environment variables
 
 Usage
 -----
 * At this, you need to fork the project
-* Edit the Deployer.java class
+* Edit the _Deployer.java_ class
 * Update the three static attributes
-> 1. DESTINATION_VERSION
-> 2. DESTINATION_GROUPID  
-> 3. LOCAL_LIBRARY_PATH
+> 1. _DESTINATION\_VERSION_
+> 2. _DESTINATION\_GROUPID_ 
+> 3. _LOCAL\_LIBRARY\_PATH_
 
 Improvements
 ------------
